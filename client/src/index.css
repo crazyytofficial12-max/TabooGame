@@ -1,0 +1,214 @@
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  color: #f5f6fa;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 2em 2em;
+  background: rgba(34, 40, 49, 0.98);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.flex {
+  display: flex;
+  gap: 2em;
+}
+
+.card {
+  background: #232526;
+  border-radius: 18px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+  padding: 2em;
+  margin-bottom: 0;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.2em;
+  margin: 2em auto 1em auto;
+  max-width: 700px;
+}
+
+.board button {
+  background: #232526;
+  color: #ffd700;
+  border-radius: 12px;
+  font-size: 1.2em;
+  font-weight: 500;
+  padding: 1.2em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  border: 2px solid #333;
+  transition: box-shadow 0.2s, background 0.2s, color 0.2s;
+}
+.board button:hover:not(:disabled) {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  background: #333;
+  color: #fff;
+}
+.board button:disabled {
+  background: #444;
+  color: #bbb;
+  cursor: not-allowed;
+}
+
+.board .red {
+  background: #ff4f4f !important;
+  color: #fff !important;
+}
+.board .blue {
+  background: #0072ff !important;
+  color: #fff !important;
+}
+.board .assassin {
+  border: 2px solid #ff4f4f !important;
+}
+
+.card-word {
+  background: #232526;
+  color: #ffd700;
+  border-radius: 14px;
+  font-size: 1.3em;
+  font-weight: 600;
+  padding: 1.3em 0.5em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  border: 2px solid #333;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.card-word.revealed {
+  background: #888;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  border: 2px solid #ffd700;
+}
+.card-word.red {
+  background: #ff4f4f !important;
+  color: #fff !important;
+}
+.card-word.blue {
+  background: #0072ff !important;
+  color: #fff !important;
+}
+.card-word.assassin {
+  background: #232526 !important;
+  color: #ffd700 !important;
+  border: 2px solid #ff4f4f !important;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 2em;
+  background: #232526;
+  border-radius: 16px;
+  margin-bottom: 2em;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+}
+.top-bar .game-title {
+  font-size: 2em;
+  font-weight: bold;
+  color: #00c6ff;
+  letter-spacing: 2px;
+}
+.top-bar .room-code {
+  font-family: 'Fira Mono', monospace;
+  color: #ffd700;
+  font-size: 1.1em;
+  margin-right: 1em;
+}
+.top-bar .copy-btn {
+  background: #ffd700;
+  color: #232526;
+  border: none;
+  border-radius: 6px;
+  padding: 0.3em 0.8em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.side-panel {
+  background: #232526;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  padding: 1.5em;
+  min-width: 200px;
+  margin-right: 2em;
+}
+
+.scores {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
+.scores .red {
+  color: #ff4f4f;
+  font-weight: bold;
+}
+.scores .blue {
+  color: #0072ff;
+  font-weight: bold;
+}
+
+.chat-panel {
+  background: #232526;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  padding: 1.5em;
+  min-width: 250px;
+  margin-left: 2em;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 1em 0.5em;
+    border-radius: 0;
+    box-shadow: none;
+    max-width: 100vw;
+    margin: 0;
+  }
+  .mobile-hide {
+    display: none;
+  }
+  .flex {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+  .card {
+    padding: 1em;
+    border-radius: 10px;
+  }
+  .board {
+    gap: 0.5em;
+  }
+}
+
+@media (max-width: 900px) {
+  .board {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 100vw;
+  }
+  .top-bar {
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+  }
+  .side-panel, .chat-panel {
+    margin: 0;
+    min-width: 100vw;
+    border-radius: 10px;
+    padding: 1em;
+  }
+}
